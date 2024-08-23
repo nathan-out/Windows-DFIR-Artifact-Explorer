@@ -19,7 +19,7 @@ These provide the analyst with a **thought path*, as well as the **location**, *
 
 ## Table of Contents
 
-[The Divide And Conquer methodology]([The-Divide-And Conquer methodology](#the-divide-and-conquer-methodology)
+[The Divide And Conquer methodology](#the-divide-and-conquer-methodology)
 
 [Windows Forensic Analysis Poster](#windows-forensic-analysis-poster)
 
