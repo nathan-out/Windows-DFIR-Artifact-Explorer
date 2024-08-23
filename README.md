@@ -59,6 +59,7 @@ This invaluable poster created by The SANS Institute references and explains the
 - [Operation Cobalt Kitty - Cybereason](https://cdn2.hubspot.net/hubfs/3354902/Cybereason%20Labs%20Analysis%20Operation%20Cobalt%20Kitty.pdf)
 - [Follow the Link: Exploiting Symbolic Links with Ease - Cyberark](https://www.cyberark.com/resources/threat-research-blog/follow-the-link-exploiting-symbolic-links-with-ease)
 - [Malware Reverse Engineering Handbook - NATO CCDCOE](https://ccdcoe.org/uploads/2020/07/Malware_Reverse_Engineering_Handbook.pdf)
+- [ESE Databases are Dirty! by Chad Tilbury - SANS DFIR Blog](https://www.sans.org/blog/ese-databases-are-dirty/)
 
 ### Tools
 
