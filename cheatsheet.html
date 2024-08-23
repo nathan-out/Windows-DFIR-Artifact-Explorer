@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windows DFIR Artifact Explorer</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="scrollbar.css">
+<link rel="stylesheet" href="navbar.css">
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+<script src="https://unpkg.com/dagre@0.7.4/dist/dagre.js"></script>
+<script src="cytoscape-dagre.js"></script>
+</head>
+<div id="popup1" class="popup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h4 id="popup1-h4-title"></h4>
+                <button id="close_popup1" type="button" class="btn">x</button>
+            </div>
+            <div class="popup-body windows-scrollbar">
+                <div class="content-block">
+                    <div id="popup1-content" class="block-header"></div>
+                </div>
+            </div>
+        </div>
+</div>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light navbar-95 ">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><img src="assets/icons/computer-3.png" class="icon-32"></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn start-button" href="#" onclick="popup_open('contribute')">
+                            <img src="assets/icons/event_log.png" class="icon-16">
+                            Contribute
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn start-button" href="#" onclick="popup_open('help')">
+                            <img src="assets/icons/help_book_big-0.png" class="icon-16">
+                            How to use this website?
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="title-box">
+        <h1 class="title">Windows Forensic Analysis Poster x Divide And Conquer methodology</h1>
+    </div>
+    <div>
+        <div id="cy"></div>
+    </div>
+    <footer class="taskbar">
+        <div>
+            <img src="assets/icons/windows-0.png" class="icon-32">
+            &copy; made by
+            <a href="https://nathan-out.github.io/" class="btn start-button" target="_blank">
+                <img src="assets/icons/users-1.png" class="icon-16">
+                Author\nathan.out
+            </a>
+            based on 
+            <a href="https://www.sans.org/posters/windows-forensic-analysis/" class="btn start-button" target="_blank">
+                <img src="assets/icons/kodak_imaging_file-0.png" class="icon-16">
+                Windows Forensic Analysis - SANS
+            </a>
+            & 
+            <a href="https://training.sleuthkitlabs.com/courses/intro-to-divide-and-conquer" class="btn start-button" target="_blank">
+                <img src="assets/icons/search_web-0.png" class="icon-16">
+                Intro to DFIR: The Divide and Conquer Process - Sleuth Kit Labs
+            </a>
+            made with
+            <a href="https://js.cytoscape.org/" class="btn start-button" target="_blank">
+                <img src="assets/icons/script_file_yellow-1.png" class="icon-16">
+               Cytoscape.js
+            </a>
+            and the 
+            <a href="https://alexbsoft.github.io/win95.css/" class="btn start-button" target="_blank">
+                <img src="assets/icons/paint_file-5.png" class="icon-16">
+                Win95.CSS stylesheet
+            </a>
+        </div>
+    </footer>
+    <script src="tree.js"></script>
+    <script>
+        // when user click on the popup close button
+        document.getElementById("close_popup1").addEventListener('click', function(event){
+            var popup = document.getElementById('popup1')
+            popup.style.display = 'none'
+            console.log('close pop up')
+        });
+        // when user wants to contribute or help (click on popup)
+        function popup_open(mode){
+            var popup_title = document.getElementById('popup1-h4-title')
+            var popup_content = document.getElementById('popup1-content')
+            var inner_html = ''
+            if(mode == 'contribute'){
+                popup_title.innerHTML = 'Contribute'
+                popup_content.innerHTML = "<h5>Want to contribute? Something is missing or wrong?</h5><p>If you have any insights, ideas, or feedback to share, I encourage you to contribute. There's a <b>roadmap</b> on the Github repo. Your input will be highly appreciated, and it will help me enhance the project. If something seems incomplete or if you've noticed any errors, don't hesitate to bring it to my attention.</p><p>Thank you for your ongoing support and involvement.</p>"
+                popup_content.innerHTML += '<a class="btn start-button" href="#TODOgithub-project-link" target="_blank"><img src="assets/icons/search_web-0.png" class="icon-16"> Github repo</a>'
+            } else if (mode == 'help') {
+                popup_title.innerHTML = 'How to use this website?'
+                popup_content.innerHTML = '<p><img src="assets/icons/help_question_mark-0.png" class="icon-16"> To use this site, <b>follow the questions and click on the blue rectangles</b> to display the artifact categories. Then click on them to display the <b>location</b>, <b>description</b> and <b>interpretation</b> of the artifacts.</p><hr>'
+                popup_content.innerHTML += '<p>This site aims to compile two very useful resources for the Digital Forensic and Incident Response (DFIR) analyst: </p><ul><li><a href="https://www.sans.org/posters/windows-forensic-analysis/" class="btn start-button" target="_blank"><img src="assets/icons/kodak_imaging_file-0.png" class="icon-16"> Windows Forensic Analysis Poster - SANS</a></li><li><a href="https://training.sleuthkitlabs.com/courses/intro-to-divide-and-conquer" class="btn start-button" target="_blank"><img src="assets/icons/search_web-0.png" class="icon-16"> Intro to DFIR: The Divide and Conquer Process - Sleuth Kit Labs</a></li></ul><p>These provide the analyst with a <b>thought path</b>, as well as the location, description and interpretation of artifacts of interest. The associated tools are not yet available, but perhaps they will be in the next update?</p>'
+                popup_content.innerHTML += '<hr><h5>The Divide And Conquer methodology</h5><p><img src="assets/icons/address_book-0.png" class="icon-16"> The idea behind this method created by <i>Sleuth Kit Labs</i> is to guide the novice analyst towards the artifacts of interest, depending on the case. To this end, the method proposes to <b>divide questions into sub-questions until they can be answered by the analysis of one or more artifacts</b>.</p>'
+                popup_content.innerHTML += '<h5>Windows Forensic Analysis Poster</h5><p><img src="assets/icons/search_computer-2.png" class="icon-16"> This invaluable poster created by <i>The SANS Institute</i> references and explains the most interesting Windows artifacts for a Digital Forensic and Incident Response (DFIR) analyst.</p><p>The <b>artifacts are grouped into categories with self-explanatory names</b> such as “<i>Application Execution</i>, <i>File And Folder Opening</i> or <i>Account Usage</i>”. Each category contains several artifacts with <b>descriptions</b>, <b>locations</b> and <b>interpretations</b></p>'
+                popup_content.innerHTML += '<hr><h5>The special case of memory (RAM) analysis</h5><p><img src="assets/icons/memory-1.png" class="icon-16"> There is a separate <i>“Memory Analysis”</i> section at the end of each SANS category description. This is an addition on my part. It\'s a bit of a separate section, because even though RAM contains artifacts compatible with the SANS categories, this whole area of forensics could be more rigorously and comprehensively described in a separate diagram.<br><br>So, this approach to RAM analysis isn\'t perfect, as it would require a diagram in its own right (any contribution is appreciated). However, adding it to the present diagram points the way forward for the novice analyst. Finally, it shows that RAM analysis can be used for more than just running programs.</p>'
+                popup_content.innerHTML += '<p>I\'m describing Volatility3 (RAM dump analysis tool) exclusively here, as Volatility2 has not been maintained since December 2020. It\'s likely that there will be more plugins with version 2 for specific uses. Nevertheless, the community needs to take ownership of version 3, which is being actively maintained and improved.<br><br>I invite you to visit the <a href="https://github.com/volatilityfoundation/volatility3/releases" class="btn start-button" target="_blank"><img src="assets/icons/executable_gear-0.png" class="icon-16"> Volatility3 releases page</a> to keep up to date with the latest plugin additions.</p>'
+            } else {
+                popup_title.innerHTML = 'ERROR'
+                popup_content.innerHTML = 'An error has occured. Please open an issue or stop tinkering with javascript code.'
+            }
+            var modal = document.getElementById("popup1")
+            modal.style.display = 'block'
+        }
+    </script>
+</body>
+</html>

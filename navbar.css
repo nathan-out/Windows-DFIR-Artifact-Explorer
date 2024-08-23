@@ -1,0 +1,98 @@
+/*
+From :
+
+    WIN95.CSS
+    https://github.com/AlexBSoft/win95.css
+    Author: Alex B (alex-b.me)
+    License: MIT
+
+    Version: 1.2.0
+    06.12.2020
+
+Scrollbar (only chrome & safari)
+
+*/
+
+.navbar-95 {
+    background: silver;
+    margin: 0;
+    border: 1px outset #fff;
+    color: black;
+}
+
+.navbar-brand {
+    color: black;
+    padding: 0 6px;
+}
+
+.navbar-light .navbar-toggler {
+    color: black;
+    border-color: rgba(0, 0, 0, .1);
+}
+
+.navbar-toggler {
+    width: auto;
+}
+
+.navbar-light .navbar-toggler .navbar-toggler-icon {
+    width: 32px;
+    background: url(icons/directory_open_cool-5.png);
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    padding-top: 2px;
+    margin:0;
+    list-style: none;
+}
+
+.navbar-nav a{
+    margin-right: 4px;
+}
+
+ul.navbar-nav{
+    align-items: center;
+}
+
+.navbar-expand-lg .navbar-nav {
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.nav-link {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 9px;
+    color: #212529;
+}
+
+/*Footer*/
+
+.taskbar {
+    cursor: default;
+    background-color: silver;
+    margin: 0;
+    position: static;
+    bottom: 0;
+    border-top: 2px outset #fff;
+    width: 100%;
+    margin-right: 0px;
+    position: absolute;
+    bottom: 0;
+    color: black;
+}
+
+.taskbar div{
+    padding-left:8px;
+    display: flex;
+    align-items: center;
+}
+
+.taskbar>div>img, .taskbar>div>a{
+    margin-left:4px;
+    margin-right: 4px;
+}
