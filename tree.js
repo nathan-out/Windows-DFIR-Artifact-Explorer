@@ -1,12 +1,3 @@
-/*
-TODO
-- créer le repo Github avec la roadmap et tout ça
-- ajouter le lien du répo Github à la pop up Contribute
-ROADMAP
-- improve intepretation section, as sometimes it is not properly formated (lists not displayed as lists...) (show example)
-- add code formating css rules on path, GUID, etc... to improve lisibility (show example)
-- break categories into uniques json files
-*/
 // "JSONifyed" SANS poster datas
 var sans_cat_mapping = {
     "Application Execution": {
@@ -230,7 +221,7 @@ var sans_cat_mapping = {
                     "IE8–9: %USERPROFILE%\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5",
                     "IE10–11 & Win10+: %USERPROFILE%\\AppData\\Local\\Microsoft\\Windows\\WebCache\\WebCacheV*.dat"
                 ],
-                interpretation: "Entries recorded as: file:///C:/directory/filename.ext. Does not mean file was opened in a browser."
+                interpretation: "Entries recorded as: file:///C:/directory/filename.ext. Does not mean file was opened in a browser.<br><br>Remember that even if a user never opens Internet Explorer, there may still be valuable records in their IE database including files opened on the local system, network shares, and removable devices. It may also hold evidence of malicious activity including HTTP connections initiated on behalf of malware or suspicious sites visited via links clicked in email clients.<br><br>Internet Explorer and its supporting libraries are deeply tied to the Windows operating system and WinINet API functions often interact with IE databases.<br>From <a href=\"https://www.sans.org/blog/ese-databases-are-dirty/\" class=\"btn start-button\" target=\"_blank\"><img src=\"assets/icons/kodak_imaging_file-0.png\" class=\"icon-16\"> ESE Databases are Dirty! by Chad Tilbury - SANS DFIR Blog</a>"
             },
             {
                 artefact_name: "Memory (RAM) Analysis",
@@ -271,8 +262,7 @@ var sans_cat_mapping = {
                     "IE8-9: %USERPROFILE%\\AppData\\Local\\Microsoft\\Windows\\History\\History.IE5",
                     "IE10-11 and Win10+: %USERPROFILE%\\AppData\\Local\\Microsoft\\Windows\\WebCache\\WebCacheV*.dat"
                 ],
-                interpretation: "Entries are recorded as: file:///C:/<directory>/<filename>.<ext>. It does not mean the file was opened in a browser."
-            },
+                interpretation: "Entries recorded as: file:///C:/directory/filename.ext. Does not mean file was opened in a browser.<br><br>Remember that even if a user never opens Internet Explorer, there may still be valuable records in their IE database including files opened on the local system, network shares, and removable devices. It may also hold evidence of malicious activity including HTTP connections initiated on behalf of malware or suspicious sites visited via links clicked in email clients.<br><br>Internet Explorer and its supporting libraries are deeply tied to the Windows operating system and WinINet API functions often interact with IE databases.<br>From <a href=\"https://www.sans.org/blog/ese-databases-are-dirty/\" class=\"btn start-button\" target=\"_blank\"><img src=\"assets/icons/kodak_imaging_file-0.png\" class=\"icon-16\"> ESE Databases are Dirty! by Chad Tilbury - SANS DFIR Blog</a>"            },
             {
                 artefact_name: "Search – WordWheelQuery",
                 description: "This maintains an ordered list of terms put into the File Explorer search dialog.",
