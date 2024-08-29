@@ -75,7 +75,6 @@ This invaluable poster created by The SANS Institute references and explains the
 
 ## Roadmap
 
-- [ ] add og tags to share the website on social media
 - [ ] improve display on small screen size (responsive design)
 - [ ] improve intepretation section, as sometimes it is not properly formated (lists not displayed as lists...)
 - [ ] add code formating css rules on path, GUID, etc... to improve lisibility (show example)
