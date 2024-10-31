@@ -79,3 +79,5 @@ This invaluable poster created by The SANS Institute references and explains the
 - [ ] improve intepretation section, as sometimes it is not properly formated (lists not displayed as lists...)
 - [ ] add code formating css rules on path, GUID, etc... to improve lisibility (show example)
 - [ ] break categories into uniques json files
+- [ ] add a search bar to easily retrieve artifacts of interest
+- [ ] add hive path
