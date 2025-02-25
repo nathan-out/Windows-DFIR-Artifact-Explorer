@@ -82,3 +82,5 @@ This invaluable poster created by The SANS Institute references and explains the
 - [ ] break categories into uniques json files
 - [ ] add a search bar to easily retrieve artifacts of interest
 - [ ] add hive path
+- [ ] try to scroll inside the pop-up -> scroll the entire page
+- [ ] improve the pop up size (height and width) fot a better UX
